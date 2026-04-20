@@ -1,3 +1,4 @@
+// src/app/api/sales/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(request: NextRequest) {
@@ -16,7 +17,10 @@ export async function POST(request: NextRequest) {
       `https://app.tablecrm.com/api/v1/docs_sales/?token=${token}${post ? '&post=true' : ''}`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
         body: JSON.stringify(body),
       }
     );
